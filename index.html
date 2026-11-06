@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ข้อมูล UpVdo เครื่องมือส่วนตัวบนเครื่องผู้ใช้ สำหรับเตรียมคำอธิบายวิดีโอด้วย AI และทดสอบการเผยแพร่ผ่านบัญชีที่อนุญาต">
+  <title>UpVdo — Personal Video Publishing Sandbox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปเนื้อหา</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="UpVdo หน้าหลัก"><span class="brand-mark" aria-hidden="true">↑</span>UpVdo</a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html" aria-current="page">เกี่ยวกับเครื่องมือ</a>
+        <a href="privacy.html">ความเป็นส่วนตัว</a>
+        <a href="terms.html">เงื่อนไขการใช้งาน</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow">Personal Video Publishing Sandbox</div>
+      <h1 id="page-title">จากวิดีโอในเครื่อง<br>สู่คำอธิบายที่พร้อมตรวจทาน</h1>
+      <p class="lead">UpVdo เป็นเครื่องมือส่วนตัวที่ทำงานบนคอมพิวเตอร์ของเจ้าของ เชื่อม n8n ใน Docker กับ Google Gemini เพื่อช่วยเขียนคำอธิบายและแฮชแท็กจากเนื้อหาวิดีโอ แล้วดำเนินการกับบัญชีที่ผู้ใช้อนุญาต</p>
+      <div class="pill-row" aria-label="ขอบเขตเครื่องมือ">
+        <span class="pill strong">Local utility</span>
+        <span class="pill">TikTok Sandbox / Private testing</span>
+        <span class="pill">บัญชีที่เจ้าของอนุญาต</span>
+      </div>
+    </section>
+    <section class="section two-column" aria-labelledby="scope-title">
+      <div>
+        <div class="section-label">Purpose &amp; scope</div>
+        <h2 id="scope-title">เครื่องมือสำหรับการทดสอบส่วนตัว</h2>
+        <p>UpVdo ใช้กับไฟล์ที่เลือกจากเครื่องและบัญชีของผู้ทดสอบที่ได้รับอนุญาต ไม่มีการเปิดรับสมัครเป็นบริการสาธารณะ และหน้าเว็บไซต์นี้มีไว้แสดงข้อมูลเครื่องมือ นโยบายความเป็นส่วนตัว และเงื่อนไขสำหรับการตั้งค่าการเชื่อมต่อ</p>
+        <p>การทดสอบ TikTok มุ่งใช้สภาพแวดล้อม Sandbox และการเผยแพร่แบบส่วนตัวตามสิทธิ์ที่บัญชีทดสอบได้รับ เอกสารนี้ไม่ได้ยืนยันว่าแอปผ่านการตรวจสอบหรือได้รับอนุมัติให้ใช้งาน TikTok ใน production</p>
+      </div>
+      <aside class="card" aria-labelledby="control-title">
+        <h3 id="control-title">ผู้ใช้เป็นผู้เลือกงานที่ต้องการทำ</h3>
+        <p>ผู้ใช้เลือกวิดีโอ บัญชี ปลายทาง และการเผยแพร่ก่อนเริ่มงาน การเชื่อมต่อที่ยังไม่พร้อมจะต้องตั้งค่าให้เรียบร้อย และสถานะการส่งคำขอจะไม่ถูกแสดงว่าเป็นการเผยแพร่สำเร็จโดยไม่มีผลยืนยัน</p>
+        <p>เว็บไซต์นี้ไม่มีช่องรับวิดีโอ แบบฟอร์มเข้าสู่ระบบ หรือช่องให้กรอกรหัสผ่านและคีย์ API</p>
+      </aside>
+    </section>
+    <section class="section two-column" aria-labelledby="flow-title">
+      <div>
+        <div class="section-label">How data moves</div>
+        <h2 id="flow-title">ข้อมูลเดินทางอย่างไร</h2>
+        <p>การประมวลผลเริ่มจากโปรแกรมในเครื่อง เว็บไซต์เอกสารนี้ไม่ได้เป็นตัวกลางรับวิดีโอหรือเก็บข้อมูลบัญชี</p>
+      </div>
+      <ol class="steps">
+        <li><div><h3>เลือกไฟล์ในเครื่อง</h3><p>โปรแกรมอ่านชื่อและชนิดไฟล์ คำนวณลายนิ้วมือไฟล์เพื่อช่วยกันอัปโหลดซ้ำ และสร้างสำเนาพักงานใน Docker ของผู้ใช้</p></div></li>
+        <li><div><h3>ให้ AI วิเคราะห์เนื้อหา</h3><p>n8n ส่งวิดีโอ รวมภาพและเสียง ไปยัง Google Gemini เพื่อสร้างคำอธิบาย แฮชแท็ก และคำค้น ผู้ใช้สามารถสร้างตัวอย่างเพื่อตรวจข้อความได้</p></div></li>
+        <li><div><h3>ดำเนินการกับบัญชีที่อนุญาต</h3><p>เมื่อผู้ใช้สั่งและให้สิทธิ์ ข้อมูลที่จำเป็นจึงถูกส่งไปยัง YouTube หรือการเชื่อมต่อ TikTok ที่ตั้งค่าไว้ ภายใต้ขอบเขตและข้อจำกัดของแต่ละแพลตฟอร์ม</p></div></li>
+        <li><div><h3>เก็บผลการทำงานในเครื่อง</h3><p>มีไฟล์สถานะและใบรับ เช่น รหัสวิดีโอ ลิงก์ คำอธิบาย และสถานะงาน เพื่อช่วยตรวจผลและหลีกเลี่ยงการอัปโหลด YouTube ซ้ำ</p></div></li>
+      </ol>
+    </section>
+    <section class="section" aria-labelledby="documents-title">
+      <div class="section-label">Documentation</div>
+      <h2 id="documents-title">อ่านรายละเอียดก่อนเชื่อมบัญชี</h2>
+      <div class="document-links">
+        <a class="document-link" href="privacy.html"><strong>นโยบายความเป็นส่วนตัว ↗</strong><span>ข้อมูลที่ใช้ ปลายทางของข้อมูล การเก็บรักษา และการควบคุมข้อมูลในเครื่อง</span></a>
+        <a class="document-link" href="terms.html"><strong>เงื่อนไขการใช้งาน ↗</strong><span>ขอบเขต Sandbox การอนุญาต การตรวจข้อความ AI และการตรวจสถานะจริง</span></a>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="contact-title">
+      <div class="callout">
+        <h2 id="contact-title">การติดต่อและควบคุมการใช้งาน</h2>
+        <p>เครื่องมือนี้ไม่มีฝ่ายบริการสาธารณะ ผู้ทดสอบติดต่อเจ้าของเครื่องหรือผู้ดูแล n8n ที่ให้สิทธิ์ใช้งานโดยตรง เพื่อสอบถามการทำงาน หยุดการเชื่อมต่อ หรือจัดการข้อมูลในเครื่อง โดยไม่ส่งรหัสผ่านหรือโทเคนผ่านหน้าเว็บไซต์นี้</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p>UpVdo · Personal local utility<br>เอกสารฉบับวันที่ <time datetime="2026-11-05">5 พฤศจิกายน 2026</time></p><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div></footer>
+</body>
+</html>
